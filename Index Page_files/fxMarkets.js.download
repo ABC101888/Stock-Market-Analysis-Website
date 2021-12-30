@@ -1,0 +1,61 @@
+marketsScripts = new Array();
+function getMarketsScripts() {
+    var scripts = document.getElementsByTagName('script');
+    for (var i = 0; i < scripts.length; ++i) {
+        if (scripts[i].src.match('fxMarkets.js')) {
+            marketsScripts.push(scripts[i]);
+        }
+    }
+}
+
+
+function protocol(name) {
+    if (name == 'https:') {
+        return name
+    }
+    else return "http:"
+}
+
+(function () {
+    if (location.host.indexOf("myfxbook") != -1) {
+        loadMarketsWidget(true);
+    } else if (document.getElementsByClassName("powered").length == 0) {
+        loadMarketsWidget(false);
+    }
+}());
+
+function loadMarketsWidget(fromFx) {
+    getMarketsScripts();
+    var url = protocol(location.protocol) + "//widgets.myfxbook.com";
+    var widgetContainer;
+    if (fromFx) {
+        widgetContainer = document.getElementById("marketsWidget");
+    } else {
+        widgetContainer = document.createElement("div");
+        var script = marketsScripts[marketsScripts.length-1];
+        if (script.parentNode.nodeName.toLowerCase() == 'head') {
+            document.childNodes[document.childNodes.length-1].appendChild(widgetContainer);
+        } else {
+            script.parentNode.insertBefore(widgetContainer, script.nextSibling);
+        }
+    }
+    widgetContainer.innerHTML = (['<iframe name="myfxbook_market" width="235" height="290" scrolling="no" frameborder="0" allowtransparency="true" hspace="0" vspace="0" marginheight="0" marginwidth="0" src="' + url + '/widgets/market.html"></iframe>'].join(''));
+}
+
+
+function showMarketsWidget() {
+    var error = false;
+    try {
+        if (document.getElementsByClassName("myfxbookLink")[0].getAttribute("href") == "https://www.myfxbook.com") {
+            loadMarketsWidget(false);
+        } else {
+            error = true;
+        }
+    } catch (e) {
+        error = true;
+    }
+    if (error) {
+        document.write("Please use the original code provided by Myfxbook.");
+    }
+
+}

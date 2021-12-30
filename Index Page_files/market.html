@@ -1,0 +1,101 @@
+
+<!-- saved from url=(0048)https://widgets.myfxbook.com/widgets/market.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="server-time" content="12/30/2021 21:12:23">
+
+    <link rel="stylesheet" type="text/css" href="./widgets-min.css" title="default">
+<meta name="robots" content="index, follow">
+<script type="text/javascript" src="./jquery-1.9.1.min.js.download"></script>
+<script type="text/javascript" src="./jquery-ui-1.9.2.min.js.download"></script>
+<script type="text/javascript" src="./jquery.floatThead.min.js.download"></script>
+<script type="text/javascript">
+    jQuery.noConflict();
+</script>
+
+<script type="text/javascript" src="./widgets-min.js.download"></script>
+
+
+<!--[if lt IE 9]>
+<script type="text/javascript" src="https://widgets.myfxbook.com/scripts/tipped/excanvas/excanvas.js"></script>
+<![endif]-->
+<script type="text/javascript" src="./spinners.min.js.download"></script>
+<script type="text/javascript" src="./tipped.js.download"></script>
+
+<link rel="stylesheet" type="text/css" href="./tipped.css">
+
+
+     
+    <script type="text/javascript">
+        var dt = new Date(getMetaContent("server-time"));
+    </script>
+</head>
+
+<body marginwidth="0" marginheight="0">
+
+<div class="box_cont" style="width:231px">
+    <div class="boxTitle">
+        <a href="https://www.myfxbook.com/" class="font10 floatRight paddlr5" style="font-weight:normal;" target="_blank">Myfxbook.com</a>
+        <div class="floatLeft">Markets</div>
+        <div style="margin-top:8px" class="pointer floatLeft" id="marketsTip"><img src="./question.png" class="inline" align="middle"></div>
+        <a id="androidTip" class="border0" target="_blank" href="https://play.google.com/store/apps/details?id=com.myfxbook.forex"><img style="margin-top:2px" src="./android.icon.png" alt=""></a>
+        <a id="iOSTip" class="border0" target="_blank" href="https://itunes.apple.com/il/app/forex-calendar-market-news/id985947299?mt=8"><img style="margin-top:2px" src="./ios.icon.png" alt=""></a>
+    </div>
+    <div id="markets">
+        <div id="timeWidget" style="display: none;"></div>
+        <div id="newYorkM" class="market" style="right: 143.75px;">New York</div>
+        <div id="londonM" class="market" style="right: 95.8333px;">London</div>
+        <div id="tokyoM" class="market" style="right: 28.75px;">Tokyo</div>
+        <div id="sydneyM" class="on">Sydney</div>
+        <div style="margin-top:26px"></div>
+        <table cellspacing="10" class="maxWidth font11 lh14" border="0">
+            <tbody><tr>
+                <td><span id="newYorkB" class="marketBoff"></span> New York</td>
+                <td id="newYork" align="right" class="font10"><div id="timeline" style="right:2.015162037037037px"></div><div>opens in 14h, 47m, 23s</div></td>
+            </tr>
+            <tr>
+                <td><span id="londonB" class="marketBoff"></span> London</td>
+                <td id="london" align="right" class="font10">opens in 9h, 47m, 23s</td>
+            </tr>
+            <tr>
+                <td><span id="tokyoB" class="marketBoff"></span> Tokyo</td>
+                <td id="tokyo" align="right" class="font10">opens in 2h, 47m, 23s</td>
+            </tr>
+            <tr>
+                <td><span id="sydneyB" class="marketBon"></span> Sydney</td>
+                <td id="sydney" align="right" class="font10">closes in 8h, 47m, 23s</td>
+            </tr>
+
+        </tbody></table>
+        <script type="text/javascript">
+            new Tip('#marketsTip', 'Current open markets, updated in real time. Time bar progresses from right to left.', {
+                title: 'Live Markets Info',
+                fixed: true,
+                maxWidth:200,
+                hook:{
+                    tooltip:'topleft',
+                    target:'bottomright'
+                }
+            });
+
+              new Tip('#androidTip', 'Download the free Android App!', {
+                    title: '',
+                    maxWidth:200
+                });
+
+            new Tip('#iOSTip', 'Download the free iOS App!', {title: '', maxWidth:200});
+
+        </script>
+                <input type="hidden" id="moil" value="opens in">
+        <input type="hidden" id="mcil" value="closes in">
+                <input type="hidden" id="mhp" value="h">
+                <input type="hidden" id="mmp" value="m">
+                <input type="hidden" id="msp" value="s">
+    </div>
+</div>
+<script type="text/javascript">
+    updateTime();
+    marketTime();
+</script>
+
+
+</body></html>
